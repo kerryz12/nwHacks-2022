@@ -1,16 +1,17 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>DB Forum</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to sugma
+          Welcome to DB Forum
         </h1>
 
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
@@ -35,13 +36,17 @@ export default function Home() {
           </div>
         </div>
 
+        <p className="description">
+          There is an imposter among us, please choose your crew
+        </p>
+
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
+          <a href="/posts/testpost" className="card">
             <h3>Learn &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
