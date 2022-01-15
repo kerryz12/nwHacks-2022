@@ -42,12 +42,22 @@ export default function Home() {
 
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
+            <h3>UBC &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>KPU &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+<<<<<<< HEAD
+          <a href="https://nextjs.org/learn" className="card">
+            <h3>SFU &rarr;</h3>
+=======
           <a href="/posts/testpost" className="card">
             <h3>Learn &rarr;</h3>
+>>>>>>> 90cf59377878dccbe2f3e1fd9a241773f0d1f53f
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
@@ -77,8 +87,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Created by{' '}
+          <img src="/vercel.svg" alt="Drift Bapo" className="logo" />
         </a>
       </footer>
 
