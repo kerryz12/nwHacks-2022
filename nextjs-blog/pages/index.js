@@ -17,13 +17,13 @@ export default function Home() {
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-6 py-4">
             <div className="mb-2 text-xl font-bold">Ask a question!</div>
-            <form className="flex flex-col">
+            <form className="flex flex-col" onSubmit="{submitContact}">
               <input
                 className="mb-4 border-b-2"
-                id="name"
-                name="name"
+                id="question"
+                name="question"
                 type="text"
-                autocomplete="name"
+                autocomplete="question"
                 required
               />
               <button
@@ -230,3 +230,19 @@ export default function Home() {
     </div>
   )
 }
+
+const submitContact = async (event) => {
+  event.preventDefault();
+  const name = event.target.name.value;
+  const res = await fetch('/api/contact', {
+    body: JSON.stringify({
+      name: name,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+  const result = await res.json();
+  alert(`Is this your full name: ${result.name}`);
+};
