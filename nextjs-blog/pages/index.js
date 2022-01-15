@@ -14,37 +14,15 @@ export default function Home() {
           Welcome to DB Forum
         </h1>
 
-        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">Ask a question!</div>
-            <form className="flex flex-col" onSubmit="{submitContact}">
-              <input
-                className="mb-4 border-b-2"
-                id="question"
-                name="question"
-                type="text"
-                autocomplete="question"
-                required
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-
         <p className="description">
           There is an imposter among us, please choose your crew
         </p>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
+          <a href="/posts/UBC" className="card">
             <h3>UBC &rarr;</h3>
             <div className="ubc">
-              <img src="ubc.png" style={{ width: "800px", height: "50%"}} />
+              <img src="ubc.png" style={{ width: "50%", height: "50%"}} />
             </div>
           </a>
 
@@ -68,15 +46,7 @@ export default function Home() {
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        
         </div>
       </main>
 
