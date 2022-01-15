@@ -44,7 +44,7 @@ export default function Home() {
           <a href="https://nextjs.org/docs" className="card">
             <h3>UBC &rarr;</h3>
             <div className="ubc">
-              <img src="ubc.png" style={{ width: "50%", height: "50%"}} />
+              <img src="ubc.png" style={{ width: "800px", height: "50%"}} />
             </div>
           </a>
 
@@ -82,7 +82,7 @@ export default function Home() {
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://www.reddit.com/r/leagueoflegends/"
           target="_blank"
           rel="noopener noreferrer"
         >
