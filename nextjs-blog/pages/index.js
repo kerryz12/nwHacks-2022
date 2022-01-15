@@ -5,17 +5,17 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>DB Forum</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to sugma
+          Welcome to DB Forum
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          There is an imposter among us, please choose your crew
         </p>
 
         <div className="grid">
