@@ -17,13 +17,13 @@ export default function Home() {
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-6 py-4">
             <div className="mb-2 text-xl font-bold">Ask a question!</div>
-            <form className="flex flex-col">
+            <form className="flex flex-col" onSubmit="{submitContact}">
               <input
                 className="mb-4 border-b-2"
-                id="name"
-                name="name"
+                id="question"
+                name="question"
                 type="text"
-                autocomplete="name"
+                autocomplete="question"
                 required
               />
               <button
@@ -43,7 +43,9 @@ export default function Home() {
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
             <h3>UBC &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <div className="ubc">
+              <img src="ubc.png" style={{ width: "50%", height: "50%"}} />
+            </div>
           </a>
 
           <a href="https://nextjs.org/docs" className="card">
@@ -53,7 +55,9 @@ export default function Home() {
 
           <a href="/posts/testpost" className="card">
             <h3>SFU &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <div className="sfu">
+              <img src="sfu.png" style={{ width: "30%", height: "30%"}} />
+            </div>
           </a>
 
           <a
@@ -235,3 +239,19 @@ export default function Home() {
     </div>
   )
 }
+
+const submitContact = async (event) => {
+  event.preventDefault();
+  const name = event.target.name.value;
+  const res = await fetch('/api/contact', {
+    body: JSON.stringify({
+      name: name,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+  const result = await res.json();
+  alert(`Is this your full name: ${result.name}`);
+};
