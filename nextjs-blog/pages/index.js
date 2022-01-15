@@ -11,33 +11,11 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to DB Forum
+          Welcome to DB Forum!
         </h1>
 
-        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">Ask a question!</div>
-            <form className="flex flex-col" onSubmit="{submitContact}">
-              <input
-                className="mb-4 border-b-2"
-                id="question"
-                name="question"
-                type="text"
-                autocomplete="question"
-                required
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-
         <p className="description">
-          There is an imposter among us, please choose your crew
+          Click on a school to continue. 
         </p>
 
         <div className="grid">
@@ -82,12 +60,12 @@ export default function Home() {
 
       <footer>
         <a
-          href="https://www.reddit.com/r/leagueoflegends/"
+          href="https://github.com/ker1200/nwHacks-2022"
           target="_blank"
           rel="noopener noreferrer"
         >
           Created by{' '}
-          <img src="/vercel.svg" alt="Drift Bapo" className="logo" />
+          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px"}} />
         </a>
       </footer>
 
@@ -240,18 +218,30 @@ export default function Home() {
   )
 }
 
-const submitContact = async (event) => {
-  event.preventDefault();
-  const name = event.target.name.value;
-  const res = await fetch('/api/contact', {
-    body: JSON.stringify({
-      name: name,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
-  const result = await res.json();
-  alert(`Is this your full name: ${result.name}`);
-};
+const handleSubmit = () => {
+  // ... get data form
+  // ... submit to API or something
+}
+
+
+<div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+<div className="px-6 py-4">
+  <div className="mb-2 text-xl font-bold">Ask a question!</div>
+  <form className="flex flex-col" onSubmit="{submitQuestion}">
+    <input
+      className="mb-4 border-b-2"
+      id="question"
+      name="question"
+      type="text"
+      autocomplete="question"
+      required
+    />
+    <button
+      type="submit"
+      className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+</div>
