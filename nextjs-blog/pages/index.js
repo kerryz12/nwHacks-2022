@@ -51,13 +51,8 @@ export default function Home() {
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-<<<<<<< HEAD
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>SFU &rarr;</h3>
-=======
           <a href="/posts/testpost" className="card">
-            <h3>Learn &rarr;</h3>
->>>>>>> 90cf59377878dccbe2f3e1fd9a241773f0d1f53f
+            <h3>SFU &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
