@@ -10,14 +10,14 @@
     border-left: 8px solid #fff;
 }
 .single:hover {
-    border-left: 8px solid #7f8617;
+    border-left: 8px solid #ebdd23;
 }
 .btn {
     display: block;
     width: 150px;
     padding: 8px 0;
     margin: 20px auto;
-    background: #7f8617;
+    background: #ebdd23;
     border-radius: 4px;
     color: white;
     text-align: center;
