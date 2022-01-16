@@ -13,7 +13,7 @@ export async function getServerSideProps(context) {
   return allPostsData
 }
 
-export default function UBC() {
+export default function UBC({ allPostsData }) {
     return (
     <>
       <div className="relative" id='dick'>
@@ -37,7 +37,19 @@ export default function UBC() {
 
         <div id = 'cock'>
           <h1>Posts</h1>
-          
+          {allPostsData.map(({ id, title, author, content}) => (
+      
+              <Link href={`/posts/${id}`}>
+                <a className = {ubcStyles.single}>
+                  <h3>{title}</h3>
+                  <h4>{author}</h4>
+                  <br></br>
+                  <br></br>
+                  {content}
+                </a>
+              </Link>
+  
+          ))}
             <a className={ubcStyles.single}><h3>Example Post</h3></a><br></br>
             <a className={ubcStyles.single}><h3>Example Post</h3></a><br></br>
             <a className={ubcStyles.single}><h3>Example Post</h3></a><br></br>

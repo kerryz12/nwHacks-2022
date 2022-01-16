@@ -47,6 +47,8 @@ export default function Post({ postData }) {
       {postData[0].id}
       <br />
       {postData[0].date}
+      <br />
+      {postData[0].content}
     </Layout>
   )
 }
