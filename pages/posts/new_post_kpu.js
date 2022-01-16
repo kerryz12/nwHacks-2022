@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import textstyle from "/styles/new_post.module.css";
 import styles from "/styles/schools.module.css";
@@ -32,6 +33,9 @@ export default function Home({ allPostsData }) {
 
   return (
     <div className="container">
+      <Head>
+      <title>DB Forum | New Post</title>
+      </Head>
       <div>
         <h1 className={styles.title}>Share your thoughts!</h1>
 
