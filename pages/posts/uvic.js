@@ -1,23 +1,5 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
 import { useState } from "react";
-import styles from '/styles/schools.module.css'
-
-const submitQuestion = async (event) => {
-  event.preventDefault()
-
-    const res = await fetch('/api/ask', {
-      body: JSON.stringify({
-        question: event.target.question.value
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST'
-    })
-
-    const result = await res.json()
-};
 
 export default function Home({ allPostsData }) {
   const [question, setQuestion] = useState("");
