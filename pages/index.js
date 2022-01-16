@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
 export async function getServerSideProps(context) {

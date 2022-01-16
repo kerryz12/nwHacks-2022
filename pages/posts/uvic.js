@@ -15,6 +15,8 @@ const submitQuestion = async (event) => {
     })
 
     const result = await res.json()
+
+    console.log(result)
 };
 
 export default function Home({ allPostsData }) {
