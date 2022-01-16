@@ -1,0 +1,16 @@
+const Footer = () => {
+    return (
+      <footer>
+        <a
+          href="https://github.com/ker1200/nwHacks-2022"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          
+          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px" }} />
+        </a>
+      </footer>
+     );
+}
+ 
+export default Footer;
