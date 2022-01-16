@@ -77,7 +77,6 @@ export default function Home({ allPostsData }) {
                 type="text"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                required
               />
               <br></br>
               <button type="submit" className={styles.btn}>
