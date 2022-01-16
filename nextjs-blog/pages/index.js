@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
+import Date from '../components/date'
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -26,59 +27,45 @@ export default function Home({ allPostsData }) {
         </h1>
 
         <p className="description">
-            Need an answer? Ask! {"\n"}
-            Click on your school to continue. 
+          Need an answer? Ask! {"\n"}
+          Click on your school to continue.
         </p>
 
         <div className="grid">
           <a href="/posts/UBC" className="card">
             <h3>UBC &rarr;</h3>
             <div className="ubc">
-              <img src="ubc.png" style={{ width: "300px", height: "300px"}} />
+              <img src="ubc.png" style={{ width: "300px", height: "300px" }} />
             </div>
           </a>
 
           <a href="https://nextjs.org/docs" className="card">
             <h3>KPU &rarr;</h3>
             <div className="kpu">
-              <img src="kpu.png" style={{ width: "300px", height: "300px"}} />
+              <img src="kpu.png" style={{ width: "300px", height: "300px" }} />
             </div>
           </a>
 
-          <a href="/posts/testpost" className="card">
+          <a href="/posts/SFU" className="card">
             <h3>SFU &rarr;</h3>
             <div className="sfu">
-              <img src="sfu.png" style={{ width: "300px", height: "300px"}} />
+              <img src="sfu.png" style={{ width: "300px", height: "300px" }} />
             </div>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="/posts/uvic"
             className="card"
           >
             <h3>UVic &rarr;</h3>
             <div className="uvic">
-              <img src="uvic.png" style={{ width: "300px", height: "300px"}} />
+              <img src="uvic.png" style={{ width: "300px", height: "300px" }} />
             </div>
           </a>
         </div>
       </main>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section>
-
+      
       <footer>
         <a
           href="https://github.com/ker1200/nwHacks-2022"
@@ -86,7 +73,7 @@ export default function Home({ allPostsData }) {
           rel="noopener noreferrer"
         >
           Created by{' '}
-          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px"}} />
+          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px" }} />
         </a>
       </footer>
 
@@ -238,31 +225,3 @@ export default function Home({ allPostsData }) {
     </div>
   )
 }
-
-const handleSubmit = () => {
-  // ... get data form
-  // ... submit to API or something
-}
-
-
-<div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-<div className="px-6 py-4">
-  <div className="mb-2 text-xl font-bold">Ask a question!</div>
-  <form className="flex flex-col" onSubmit="{submitQuestion}">
-    <input
-      className="mb-4 border-b-2"
-      id="question"
-      name="question"
-      type="text"
-      autocomplete="question"
-      required
-    />
-    <button
-      type="submit"
-      className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-    >
-      Submit
-    </button>
-  </form>
-</div>
-</div>
