@@ -24,7 +24,7 @@ export default function UBC() {
         </Head>
         <div>
           <h1 className={styles.title}>University of British Columbia</h1>
-          <a className={styles.btn}>Create Post</a>
+          <a href="new_post" className={styles.btn}>Ask a Question</a>
 
         <div>
           <h1>Posts</h1>

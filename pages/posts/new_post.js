@@ -1,73 +1,58 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '/styles/schools.module.css'
+import textstyle from '/styles/new_post.module.css'
 
 const submitQuestion = async (event) => {
-  event.preventDefault()
+    event.preventDefault()
 
     const res = await fetch('/api/ask', {
-      body: JSON.stringify({
-        question: event.target.question.value
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST'
+        body: JSON.stringify({
+            question: event.target.question.value
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST'
     })
 
     const result = await res.json()
 };
 
 export default function Home({ allPostsData }) {
-  return (
-    <div className="container">
-      <Head>
-        <title>DB Forum</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        
+        <div className="container">
+            <div>
+                <h1 className={styles.title}>Ask a question!</h1>
 
-      <main>
-        <h1 className="title">
-          University of Victoria
-        </h1>
+                <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+                    <div className="px-100 py-60">
+                        <form className="flex flex-col" onSubmit={submitQuestion}>
+                            <label htmlFor="question" className={textstyle.textarea}></label>
+                            <textarea rows="25" cols="100"
+                                className="mb-4 border-b-2"
+                                id="question"
+                                name="question"
+                                type="text"
+                                autocomplete="question"
+                                required
+                            />
+                            <br></br>
+                            <button
+                                type="submit"
+                                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <form className="flex flex-col" onSubmit={submitQuestion}>
-              <label htmlFor="question" className="mb-2 italic">Question: </label>
-              <input
-                className="mb-4 border-b-2"
-                id="question"
-                name="question"
-                type="text"
-                autocomplete="question"
-                required
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://github.com/ker1200/nwHacks-2022"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Created by{' '}
-          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px" }} />
-        </a>
-      </footer>
-
-      <style jsx>{`
+            <style jsx>{`
         .container {
-          min-height: 100vh;
+          min-height: 0vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -196,7 +181,7 @@ export default function Home({ allPostsData }) {
         }
       `}</style>
 
-      <style jsx global>{`
+            <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -210,7 +195,6 @@ export default function Home({ allPostsData }) {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
-  )
+        </div>
+    )
 }
-
