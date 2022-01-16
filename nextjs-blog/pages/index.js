@@ -26,26 +26,29 @@ export default function Home({ allPostsData }) {
         </h1>
 
         <p className="description">
-          Click on a school to continue. 
+            Need an answer? Ask! {"\n"}
+            Click on your school to continue. 
         </p>
 
         <div className="grid">
           <a href="/posts/UBC" className="card">
             <h3>UBC &rarr;</h3>
             <div className="ubc">
-              <img src="ubc.png" style={{ width: "50%", height: "50%"}} />
+              <img src="ubc.png" style={{ width: "300px", height: "300px"}} />
             </div>
           </a>
 
           <a href="https://nextjs.org/docs" className="card">
             <h3>KPU &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <div className="kpu">
+              <img src="kpu.png" style={{ width: "300px", height: "300px"}} />
+            </div>
           </a>
 
           <a href="/posts/testpost" className="card">
             <h3>SFU &rarr;</h3>
             <div className="sfu">
-              <img src="sfu.png" style={{ width: "30%", height: "30%"}} />
+              <img src="sfu.png" style={{ width: "300px", height: "300px"}} />
             </div>
           </a>
 
@@ -53,11 +56,11 @@ export default function Home({ allPostsData }) {
             href="https://github.com/vercel/next.js/tree/master/examples"
             className="card"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>UVic &rarr;</h3>
+            <div className="uvic">
+              <img src="uvic.png" style={{ width: "300px", height: "300px"}} />
+            </div>
           </a>
-
-        
         </div>
       </main>
 
