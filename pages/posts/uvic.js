@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
   return allPostsData
 }
 
-export default function UBC() {
+export default function UVic() {
     return (
     <>
       <div className="relative" id='sussy'>
@@ -32,18 +32,6 @@ export default function UBC() {
         <div>
           <h1 className={styles.title}>University of Victoria</h1>
           <a href="new_post" className={uvicStyles.btn}>Ask a Question</a>
-
-        <div id = 'sus'>
-          <h1>Posts</h1>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-            <a className={uvicStyles.single}><h3>Example Post</h3></a><br></br>
-          
-        </div>
         </div>
 
 
