@@ -7,18 +7,22 @@ export default function Home({ allPostsData }) {
   const submitQuestion = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:8081/dbforum/post", {
-      method: "POST",
-      body: JSON.stringify({
-        title: question,
-        author: "eric liu",
-        content: "this is a post to test the api",
-        comments: ["test comment 1", "test comment 2"],
-      }),
-    });
-
-    const data = await response.json();
-    console.log(data);
+    try {
+      const response = await fetch("http://localhost:8081/dbforum/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: question,
+          author: "eric liu",
+          content: "this is a post to test the api",
+          comments: ["test comment 1", "test comment 2"],
+        }),
+      });
+    } catch (err) {
+      console.log("bruh");
+    }
   };
 
   return (
