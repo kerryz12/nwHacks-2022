@@ -10,11 +10,7 @@ import { getSortedPostsData } from '../../lib/posts'
 
 export async function getServerSideProps(context) {
   const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
+  return allPostsData
 }
 
 export default function UBC() {
