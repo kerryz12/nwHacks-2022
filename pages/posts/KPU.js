@@ -4,17 +4,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '/styles/schools.module.css'
 import kpuStyles from '/styles/kpu.module.css'
-import { getSortedPostsData } from '../../lib/posts'
+import { getSortedPostsData } from '../../lib/ubc_posts'
 
 
 
 export async function getServerSideProps(context) {
   const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
+  return allPostsData
 }
 
 export default function KPU() {

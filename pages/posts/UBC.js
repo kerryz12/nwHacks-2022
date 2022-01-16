@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '/styles/schools.module.css'
 import ubcStyles from '/styles/ubc.module.css'
-import { getSortedPostsData } from '../../lib/posts'
+import { getSortedPostsData } from '../../lib/ubc_posts'
 
 
 
@@ -33,13 +33,13 @@ export default function UBC({ allPostsData }) {
 
         <div>
           <h1 className={styles.title}>University of British Columbia</h1>
-          <a href="new_post" className={ubcStyles.btn}>Ask a Question</a>
+          <a href="new_post_ubc" className={ubcStyles.btn}>Ask a Question</a>
 
         <div id = 'cock'>
           <h1>Posts</h1>
           {allPostsData.map(({ id, title, author, content}) => (
       
-              <Link href={`/posts/${id}`}>
+              <Link href={`/posts/ubc/${id}`}>
                 <a className = {ubcStyles.single}>
                   <h3>{title}</h3>
                   <h4>{author}</h4>

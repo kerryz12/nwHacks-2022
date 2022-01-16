@@ -1,5 +1,5 @@
 
-import { getAllPostIds, getSortedPostsData } from '../../lib/posts'
+import { getAllPostIds, getSortedPostsData } from '../../../lib/ubc_posts'
 import matter from 'gray-matter'
 import React, { useState, useEffect } from 'react';
 

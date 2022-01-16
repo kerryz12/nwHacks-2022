@@ -1,64 +1,96 @@
-import Link from "next/link";
-import { getSortedPostsData } from "../../lib/sfu_posts";
-import utilStyles from "../../styles/utils.module.css";
+import { useState } from "react";
+import textstyle from "/styles/new_post.module.css";
+import styles from "/styles/schools.module.css";
 
+export default function Home({ allPostsData }) {
+  const [question, setQuestion] = useState("");
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
 
-export async function getStaticProps(context) {
-  const allPostsData = getSortedPostsData();
-  return allPostsData;
-}
+  const submitQuestion = async (event) => {
+    event.preventDefault();
 
-export default function SFU({ allPostsData }) {
+    try {
+      const response = await fetch("http://localhost:8081/dbforum/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: question,
+          author: author,
+          content: content,
+          comments: ["test comment 1", "test comment 2"],
+          school: "kpu"
+        }),
+      });
+    } catch (err) {
+      console.log("bruh");
+    }
+    window.location.href = "/";
+  };
+
   return (
     <div className="container">
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
-      <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-        <div className="px-6 py-4">
-          <div className="mb-2 text-xl font-bold">Ask a question!</div>
-          <form className="flex flex-col" onSubmit="{submitContact}">
-            <input
-              className="mb-4 border-b-2"
-              id="question"
-              name="question"
-              type="text"
-              autocomplete="question"
-              required
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-            >
-              Submit
-            </button>
-          </form>
+      <div>
+        <h1 className={styles.title}>Ask a question!</h1>
+
+        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+          <div className="px-100 py-60">
+            <form className="flex flex-col" onSubmit={submitQuestion}>
+              <label htmlFor="question" className={textstyle.textarea}>
+                Your Question
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Your Name
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Description (Optional)
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+              <br></br>
+              <button type="submit" className={styles.btn}>
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Posts</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, title, author, content }) => (
-            <grid className={utilStyles.gridItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a className="card">
-                  {title}
-                  <br></br>
-                  <br></br>
-                  {author}
-                </a>
-              </Link>
-              {/* <br /> */}
-              {/* <Date dateString={date} /> */}
-            </grid>
-          ))}
-        </ul>
-      </section>
+
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          min-height: 0vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;

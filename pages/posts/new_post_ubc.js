@@ -21,6 +21,7 @@ export default function Home({ allPostsData }) {
           author: author,
           content: content,
           comments: ["test comment 1", "test comment 2"],
+          school: "ubc"
         }),
       });
     } catch (err) {
