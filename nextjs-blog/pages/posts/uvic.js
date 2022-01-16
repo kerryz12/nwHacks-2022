@@ -1,16 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
+const submitQuestion = async (event) => {
+  event.preventDefault();
+  const question = event.target.question.value;
+  const res = await fetch('/api/contact', {
+    body: JSON.stringify({
+      question: question,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+  const result = await res.json();
+  alert(`Is this your full name: ${result.question}`);
+};
 
 export default function Home({ allPostsData }) {
   return (
@@ -22,63 +27,31 @@ export default function Home({ allPostsData }) {
 
       <main>
         <h1 className="title">
-          Welcome to DB Forum!
+          University of Victoria
         </h1>
 
-        <p className="description">
-          Need an answer? Ask! {"\n"}
-          Click on your school to continue.
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>UBC &rarr;</h3>
-            <div className="ubc">
-              <img src="ubc.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>KPU &rarr;</h3>
-            <div className="kpu">
-              <img src="kpu.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a href="/posts/testpost" className="card">
-            <h3>SFU &rarr;</h3>
-            <div className="sfu">
-              <img src="sfu.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a
-            href="/posts/uvic"
-            className="card"
-          >
-            <h3>UVic &rarr;</h3>
-            <div className="uvic">
-              <img src="uvic.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
+        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+          <div className="px-6 py-4">
+            <form className="flex flex-col" onSubmit={submitQuestion}>
+              <label htmlFor="name" className="mb-2 italic">Question: </label>
+              <input
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                autocomplete="question"
+                required
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </main>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <footer>
         <a
@@ -239,3 +212,4 @@ export default function Home({ allPostsData }) {
     </div>
   )
 }
+
