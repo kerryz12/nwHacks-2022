@@ -11,6 +11,7 @@ export async function getServerSideProps(context) {
   return allPostsData;
 }
 
+
 export default function UBC({ allPostsData }) {
   return (
     <>
@@ -26,7 +27,7 @@ export default function UBC({ allPostsData }) {
 
       <div className="image">
         <Head>
-          <title>DB Forum | UBC</title>
+          <title>DB Forum | UVic</title>
         </Head>
 
         <div>

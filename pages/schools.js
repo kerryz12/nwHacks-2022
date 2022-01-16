@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
-const About = () => {
+const Schools = () => {
     return ( 
         <>
             <Head>
-            <title>DB Forum | About</title>
+            <title>DB Forum | Schools</title>
             </Head>
             <div>
                 <h1>About</h1>
@@ -17,4 +17,4 @@ const About = () => {
      );
 }
  
-export default About;
+export default Schools;
