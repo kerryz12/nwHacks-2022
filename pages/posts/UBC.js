@@ -1,3 +1,4 @@
+import bgi from '/public/main mall.jpg'
 import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -14,15 +15,27 @@ export async function getServerSideProps(context) {
 
 export default function UBC() {
     return (
-      <>       
+    <>
+      <div className="relative" id='dick'>
+      <Image
+        layout="intrinsic"
+        className="object-center object-cover pointer-events-none"
+        src={bgi}
+        
+      />
+      </div>
+
+      <div className='image'>
         <Head>
           <title>DB Forum | UBC</title>
         </Head>
+
+
         <div>
           <h1 className={styles.title}>University of British Columbia</h1>
           <a href="new_post" className={styles.btn}>Ask a Question</a>
 
-        <div>
+        <div id = 'cock'>
           <h1>Posts</h1>
           
             <a className={ubcStyles.single}><h3>Example Post</h3></a><br></br>
@@ -36,13 +49,8 @@ export default function UBC() {
         </div>
         </div>
 
-        {/* <div className="relative">
-        <Image
-          layout="fill"
-          className="object-center object-cover pointer-events-none"
-          src={"https://cdn.discordapp.com/attachments/927709577204617248/932147456181940284/main_mall.jpg"}
-        />
-        </div> */}
+
+      </div>
       </>
     )
   }

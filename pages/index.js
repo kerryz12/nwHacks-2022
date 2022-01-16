@@ -34,7 +34,7 @@ export default function Home({ allPostsData }) {
             </div>
           </a>
 
-          <a href="https://nextjs.org/docs" className="card">
+          <a href="/posts/KPU" className="card">
             <h3>KPU &rarr;</h3>
             <div className="kpu">
               <img src="kpu.png" style={{ width: "300px", height: "300px" }} />
