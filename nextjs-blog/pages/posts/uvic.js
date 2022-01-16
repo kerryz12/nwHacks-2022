@@ -2,35 +2,17 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 const submitQuestion = async (event) => {
-  event.preventDefault();
-  const question = event.target.question.value;
-  const res = await fetch('/api/contact', {
-    body: JSON.stringify({
-      question: question,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
-  const result = await res.json();
-  alert(`Is this your full name: ${result.question}`);
+  let student = {
+    name: 'Mike',
+    age: 23,
+    gender: 'Male',
+    department: 'English',
+    car: 'Honda'
+  };
+
+  let data = JSON.stringify(student);
+  fs.writeFileSync('student-2.json', data);
 };
-
-export async function getServerSideProps(context) {
-  const res = await fetch(`/questions.json`)
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
 
 export default function Home({ allPostsData }) {
   return (
