@@ -38,7 +38,7 @@ export default function SFU({ allPostsData }) {
         <h1>Posts</h1>
         {allPostsData.map(({ id, title, author, content}) => (
     
-            <Link href={`/posts/${id}`}>
+            <Link href={`/posts/sfuid/${id}`}>
               <a className = {sfuStyles.single}>
                 <h3>{title}</h3>
                 <h4>{author}</h4>
