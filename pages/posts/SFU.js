@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '/styles/schools.module.css'
 import sfuStyles from '/styles/sfu.module.css'
-import { getSortedPostsData } from '../../lib/posts'
+import { getSortedPostsData } from '../../lib/sfu_posts'
 
 
 export async function getStaticProps(context) {
@@ -32,7 +32,7 @@ export default function SFU({ allPostsData }) {
 
       <div>
         <h1 className={styles.title}>Simon Fraser University</h1>
-        <a href="new_post" className={sfuStyles.btn}>Create Post</a>
+        <a href="new_post_sfu" className={sfuStyles.btn}>Create Post</a>
 
       <div id = 'cock'>
         <h1>Posts</h1>

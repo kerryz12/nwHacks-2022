@@ -1,56 +1,96 @@
-import Head from "next/head";
+import { useState } from "react";
+import textstyle from "/styles/new_post.module.css";
+import styles from "/styles/schools.module.css";
 
+export default function Home({ allPostsData }) {
+  const [question, setQuestion] = useState("");
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
 
-export default function Home() {
+  const submitQuestion = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8081/dbforum/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: question,
+          author: author,
+          content: content,
+          comments: ["test comment 1", "test comment 2"],
+          school: "kpu"
+        }),
+      });
+    } catch (err) {
+      console.log("bruh");
+    }
+    window.location.href = "/";
+  };
+
   return (
     <div className="container">
-      <Head>
-        <title>DB Forum</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <div>
+        <h1 className={styles.title}>Share your thoughts!</h1>
 
-      <main>
-        <h1 className="title">Welcome to DB Forum!</h1>
-
-        <p className="description">
-          Want to share your thoughts with fellow students?{"\n"}
-          Click on your school to continue.
-        </p>
-
-        <div className="grid">
-          <a href="/posts/UBC" className="card">
-            <h3>UBC &rarr;</h3>
-            <div className="ubc">
-              <img src="ubc.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a href="/posts/KPU" className="card">
-            <h3>KPU &rarr;</h3>
-            <div className="kpu">
-              <img src="kpu.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a href="/posts/SFU" className="card">
-            <h3>SFU &rarr;</h3>
-            <div className="sfu">
-              <img src="sfu.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
-
-          <a href="/posts/uvic" className="card">
-            <h3>UVic &rarr;</h3>
-            <div className="uvic">
-              <img src="uvic.png" style={{ width: "300px", height: "300px" }} />
-            </div>
-          </a>
+        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+          <div className="px-100 py-60">
+            <form className="flex flex-col" onSubmit={submitQuestion}>
+              <label htmlFor="question" className={textstyle.textarea}>
+                Title
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Your Name
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Description (Optional)
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+              <br></br>
+              <button type="submit" className={styles.btn}>
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
-      </main>
+      </div>
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          min-height: 0vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;

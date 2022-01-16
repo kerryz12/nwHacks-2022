@@ -4,14 +4,14 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '/styles/schools.module.css'
 import uvicStyles from '/styles/uvic.module.css'
-import { getSortedPostsData } from '../../lib/posts'
+import { getSortedPostsData } from '../../lib/uvic_posts'
 
 export async function getServerSideProps(context) {
   const allPostsData = getSortedPostsData()
   return allPostsData
 }
 
-export default function UVic() {
+export default function UVic({ allPostsData }) {
     return (
     <>
       <div className="relative" id='sussy'>
@@ -31,7 +31,21 @@ export default function UVic() {
 
         <div>
           <h1 className={styles.title}>University of Victoria</h1>
-          <a href="new_post" className={uvicStyles.btn}>Ask a Question</a>
+          <a href="new_post_uvic" className={uvicStyles.btn}>Create a Post</a>
+          <div>
+            <h1>Posts</h1>
+            {allPostsData.map(({ id, title, author, content }) => (
+              <Link href={`/posts/${id}`}>
+                <a className={uvicStyles.single}>
+                  <h3>{title}</h3>
+                  <h4>{author}</h4>
+                  <br></br>
+                  <br></br>
+                  {content}
+                </a>
+              </Link>
+            ))}
+          </div>
         </div>
 
 

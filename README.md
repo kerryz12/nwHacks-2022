@@ -1,5 +1,11 @@
 ![This is an image](https://raw.githubusercontent.com/ker1200/nwHacks-2022/main/public/DBForumLogo2.png)
 
-Have you ever had a question about something but didn't have anyone to ask? Wanted to know something but no one knew the answer?
+Feeling down during pandemic times? Stuck in quarantine with no one to talk to? Online class got you feeling the blues?
 
-We created DB Forum so that students can ask their peers these sorts of questions. Anyone can ask and answer questions!
+We created DB Forum so that students can share and converse with their peers, regardless of where they are. Forum posters can choose the name that shows up, so you can feel perfectly at ease sharing things anonymously or as yourself!
+
+![This is an image](https://raw.githubusercontent.com/ker1200/nwHacks-2022/main/public/homepage.png)
+
+![This is an image](https://raw.githubusercontent.com/ker1200/nwHacks-2022/main/public/schoolpage.jpg)
+
+![This is an image](https://raw.githubusercontent.com/ker1200/nwHacks-2022/main/public/createpost.png)

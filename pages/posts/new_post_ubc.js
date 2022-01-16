@@ -1,7 +1,6 @@
 import { useState } from "react";
 import textstyle from "/styles/new_post.module.css";
 import styles from "/styles/schools.module.css";
-import Head from 'next/head'
 
 export default function Home({ allPostsData }) {
   const [question, setQuestion] = useState("");
@@ -22,6 +21,7 @@ export default function Home({ allPostsData }) {
           author: author,
           content: content,
           comments: ["test comment 1", "test comment 2"],
+          school: "ubc"
         }),
       });
     } catch (err) {
@@ -32,9 +32,6 @@ export default function Home({ allPostsData }) {
 
   return (
     <div className="container">
-      <Head>
-      <title>DB Forum | New Post</title>
-      </Head>
       <div>
         <h1 className={styles.title}>Ask a question!</h1>
 
@@ -42,7 +39,7 @@ export default function Home({ allPostsData }) {
           <div className="px-100 py-60">
             <form className="flex flex-col" onSubmit={submitQuestion}>
               <label htmlFor="question" className={textstyle.textarea}>
-                Title
+                Your Question
               </label>
               <textarea
                 rows="5"

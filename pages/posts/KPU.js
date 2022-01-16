@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { getSortedPostsData } from "../../lib/posts";
+import { getSortedPostsData } from "../../lib/kpu_posts";
 import bgi from "/public/kpu.jpg";
 import kpuStyles from "/styles/kpu.module.css";
 import styles from "/styles/schools.module.css";
@@ -29,7 +29,7 @@ export default function KPU({ allPostsData }) {
 
         <div>
           <h1 className={styles.title}>Kwantlen Polytechnic University</h1>
-          <a href="new_post" className={kpuStyles.btn}>
+          <a href="new_post_kpu" className={kpuStyles.btn}>
             Create Post
           </a>
 

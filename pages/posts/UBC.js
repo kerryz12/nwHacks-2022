@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import bgi from '/public/main mall.jpg'
 import Image from 'next/image'
 import Head from 'next/head'
@@ -7,6 +8,15 @@ import ubcStyles from '/styles/ubc.module.css'
 import { getSortedPostsData } from '../../lib/posts'
 
 
+=======
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { getSortedPostsData } from "../../lib/ubc_posts";
+import bgi from "/public/main mall.jpg";
+import styles from "/styles/schools.module.css";
+import ubcStyles from "/styles/ubc.module.css";
+>>>>>>> 7f7d9635926f408097715551ae006cbb24bad731
 
 export async function getServerSideProps(context) {
   const allPostsData = getSortedPostsData()
@@ -33,6 +43,7 @@ export default function UBC({ allPostsData }) {
 
         <div>
           <h1 className={styles.title}>University of British Columbia</h1>
+<<<<<<< HEAD
           <a href="new_post" className={ubcStyles.btn}>Ask a Question</a>
 
         <div id = 'cock'>
@@ -41,6 +52,17 @@ export default function UBC({ allPostsData }) {
       
               <Link href={`/posts/${id}`}>
                 <a className = {ubcStyles.single}>
+=======
+          <a href="new_post_ubc" className={ubcStyles.btn}>
+            Create Post
+          </a>
+
+          <div>
+            <h1>Posts</h1>
+            {allPostsData.map(({ id, title, author, content }) => (
+              <Link href={`/posts/ubcid/${id}`}>
+                <a className={ubcStyles.single}>
+>>>>>>> 7f7d9635926f408097715551ae006cbb24bad731
                   <h3>{title}</h3>
                   <h4>{author}</h4>
                   <br></br>
