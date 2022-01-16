@@ -2,16 +2,19 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 const submitQuestion = async (event) => {
-  let student = {
-    name: 'Mike',
-    age: 23,
-    gender: 'Male',
-    department: 'English',
-    car: 'Honda'
-  };
+  event.preventDefault()
 
-  let data = JSON.stringify(student);
-  fs.writeFileSync('student-2.json', data);
+    const res = await fetch('/api/ask', {
+      body: JSON.stringify({
+        question: event.target.question.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+
+    const result = await res.json()
 };
 
 export default function Home({ allPostsData }) {
@@ -30,7 +33,7 @@ export default function Home({ allPostsData }) {
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-6 py-4">
             <form className="flex flex-col" onSubmit={submitQuestion}>
-              <label htmlFor="name" className="mb-2 italic">Question: </label>
+              <label htmlFor="question" className="mb-2 italic">Question: </label>
               <input
                 className="mb-4 border-b-2"
                 id="question"
