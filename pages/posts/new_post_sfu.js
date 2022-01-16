@@ -37,13 +37,13 @@ export default function Home({ allPostsData }) {
       <title>DB Forum | New Post</title>
       </Head>
       <div>
-        <h1 className={styles.title}>Ask a question!</h1>
+        <h1 className={styles.title}>Share your thoughts!</h1>
 
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-100 py-60">
             <form className="flex flex-col" onSubmit={submitQuestion}>
               <label htmlFor="question" className={textstyle.textarea}>
-                Your Question
+                Title
               </label>
               <textarea
                 rows="5"
