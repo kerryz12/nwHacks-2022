@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import textstyle from "/styles/new_post.module.css";
 import styles from "/styles/schools.module.css";
+import kpuStyles from "/styles/kpu.module.css";
 
 export default function Home({ allPostsData }) {
   const [question, setQuestion] = useState("");
@@ -83,12 +84,12 @@ export default function Home({ allPostsData }) {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               />
-              <br></br>
-              <button type="submit" className={styles.btn}>
-                Submit
-              </button>
+              <br></br>              
             </form>
           </div>
+          <a href="/" className={kpuStyles.btn}>
+              Submit
+          </a>
         </div>
       </div>
 
