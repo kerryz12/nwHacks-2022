@@ -1,17 +1,21 @@
 import Link from 'next/link'
-import Layout from '../../components/layout'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
+import styles from './/styles/schools.module.css'
+import { getSortedPostsData } from '../../lib/posts'
 
-export default function Header() {
+export async function getServerSideProps(context) {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
+
+export default function UBC() {
     return (
       <div>
-        <Layout>
-
-
-
-        <h1>University of British Columbia</h1>
-
+        <h1 className={styles.title}>University of British Columbia</h1>
+        <p className={styles.title}>        
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-6 py-4">
             <div className="mb-2 text-xl font-bold">Ask a question!</div>
@@ -33,12 +37,9 @@ export default function Header() {
             </form>
           </div>
         </div>
-        </Layout>
-        <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
+        </p>
+
+
       </div>
       
     )
