@@ -1,8 +1,16 @@
 import Link from 'next/link'
+import Layout from '../../components/layout'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 
-export default function UBC() {
+export default function Header() {
     return (
-      <>
+      <div>
+        {/* <Navbar /> */}
+        <Layout>
+
+
+
         <h1>University of British Columbia</h1>
 
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
@@ -26,12 +34,14 @@ export default function UBC() {
             </form>
           </div>
         </div>
-
+        </Layout>
         <h2>
           <Link href="/">
             <a>Back to home</a>
           </Link>
         </h2>
-      </>
+        <Footer />
+      </div>
+      
     )
   }
