@@ -40,13 +40,13 @@ export default function UBC() {
         </div>
         </div>
 
-        <div className="relative">
+        {/* <div className="relative">
         <Image
           layout="fill"
           className="object-center object-cover pointer-events-none"
           src={"https://cdn.discordapp.com/attachments/927709577204617248/932147456181940284/main_mall.jpg"}
         />
-        </div>
+        </div> */}
       </>
     )
   }
