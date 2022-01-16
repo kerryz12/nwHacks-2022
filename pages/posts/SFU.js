@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
 import utilStyles from "../../styles/utils.module.css";
 
+
 export async function getStaticProps(context) {
   const allPostsData = getSortedPostsData();
   return allPostsData;
