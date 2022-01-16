@@ -1,11 +1,9 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
+import Head from "next/head";
+import { getSortedPostsData } from "../lib/posts";
 
 export async function getServerSideProps(context) {
-  const allPostsData = getSortedPostsData()
-  return allPostsData
+  const allPostsData = getSortedPostsData();
+  return allPostsData;
 }
 
 export default function Home({ allPostsData }) {
@@ -17,12 +15,10 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to DB Forum!
-        </h1>
+        <h1 className="title">Welcome to DB Forum!</h1>
 
         <p className="description">
-          Need an answer? Ask! {"\n"}
+          Want to share your thoughts with fellow students?{"\n"}
           Click on your school to continue.
         </p>
 
@@ -48,10 +44,7 @@ export default function Home({ allPostsData }) {
             </div>
           </a>
 
-          <a
-            href="/posts/uvic"
-            className="card"
-          >
+          <a href="/posts/uvic" className="card">
             <h3>UVic &rarr;</h3>
             <div className="uvic">
               <img src="uvic.png" style={{ width: "300px", height: "300px" }} />
@@ -206,5 +199,5 @@ export default function Home({ allPostsData }) {
         }
       `}</style>
     </div>
-  )
+  );
 }
