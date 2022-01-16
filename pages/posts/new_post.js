@@ -1,69 +1,93 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '/styles/schools.module.css'
-import textstyle from '/styles/new_post.module.css'
-
-const submitQuestion = async (event) => {
-    event.preventDefault()
-
-    const res = await fetch('/api/ask', {
-        body: JSON.stringify({
-            question: event.target.question.value
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        method: 'POST'
-    })
-
-    const result = await res.json()
-};
+import { useState } from "react";
+import textstyle from "/styles/new_post.module.css";
+import styles from "/styles/schools.module.css";
 
 export default function Home({ allPostsData }) {
-    return (
-        
-        <div className="container">
-            <div>
-                <h1 className={styles.title}>Ask a question!</h1>
+  const [question, setQuestion] = useState("");
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
 
-                <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-                    <div className="px-100 py-60">
-                        <form className="flex flex-col" onSubmit={submitQuestion}>
-                            <label htmlFor="question" className={textstyle.textarea}>Your Question</label>
-                            <textarea rows="5" cols="200"
-                                className="mb-4 border-b-2"
-                                id="question"
-                                name="question"
-                                type="text"
-                                autocomplete="question"
-                                required
-                            />
-                            <label htmlFor="question" className={textstyle.textarea}>Your Name</label>
-                            <textarea rows="5" cols="200"
-                                className="mb-4 border-b-2"
-                                id="question"
-                                name="question"
-                                type="text"
-                                autocomplete="question"
-                                required
-                            />
-                            <label htmlFor="question" className={textstyle.textarea}>Description (Optional)</label>
-                            <textarea rows="5" cols="200"
-                                className="mb-4 border-b-2"
-                                id="question"
-                                name="question"
-                                type="text"
-                                autocomplete="question"
-                                required
-                            />
-                            <br></br>
-                            <a href="/" className={styles.btn}>Submit</a>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  const submitQuestion = async (event) => {
+    event.preventDefault();
 
-            <style jsx>{`
+    try {
+      const response = await fetch("http://localhost:8081/dbforum/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: question,
+          author: author,
+          content: content,
+          comments: ["test comment 1", "test comment 2"],
+        }),
+      });
+    } catch (err) {
+      console.log("bruh");
+    }
+  };
+
+  return (
+    <div className="container">
+      <div>
+        <h1 className={styles.title}>Ask a question!</h1>
+
+        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+          <div className="px-100 py-60">
+            <form className="flex flex-col" onSubmit={submitQuestion}>
+              <label htmlFor="question" className={textstyle.textarea}>
+                Your Question
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Your Name
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                required
+              />
+              <label htmlFor="question" className={textstyle.textarea}>
+                Description (Optional)
+              </label>
+              <textarea
+                rows="5"
+                cols="200"
+                className="mb-4 border-b-2"
+                id="question"
+                name="question"
+                type="text"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                required
+              />
+              <br></br>
+              <a type="submit" href="/" className={styles.btn}>
+                Submit
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
         .container {
           min-height: 0vh;
           padding: 0 0.5rem;
@@ -194,7 +218,7 @@ export default function Home({ allPostsData }) {
         }
       `}</style>
 
-            <style jsx global>{`
+      <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -208,6 +232,6 @@ export default function Home({ allPostsData }) {
           box-sizing: border-box;
         }
       `}</style>
-        </div>
-    )
+    </div>
+  );
 }
