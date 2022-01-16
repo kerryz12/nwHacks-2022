@@ -31,7 +31,7 @@ export default function Home({ allPostsData }) {
         </p>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
+          <a href="/posts/UBC" className="card">
             <h3>UBC &rarr;</h3>
             <div className="ubc">
               <img src="ubc.png" style={{ width: "300px", height: "300px"}} />
@@ -61,7 +61,6 @@ export default function Home({ allPostsData }) {
               <img src="uvic.png" style={{ width: "300px", height: "300px"}} />
             </div>
           </a>
-
         </div>
       </main>
 
