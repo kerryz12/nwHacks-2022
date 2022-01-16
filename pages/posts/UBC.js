@@ -6,7 +6,6 @@ import Footer from '../../components/Footer'
 export default function Header() {
     return (
       <div>
-        {/* <Navbar /> */}
         <Layout>
 
 
@@ -40,7 +39,6 @@ export default function Header() {
             <a>Back to home</a>
           </Link>
         </h2>
-        <Footer />
       </div>
       
     )
