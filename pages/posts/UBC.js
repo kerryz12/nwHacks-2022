@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from './/styles/schools.module.css'
+import styles from '/styles/schools.module.css'
 import { getSortedPostsData } from '../../lib/posts'
 
 export async function getServerSideProps(context) {
