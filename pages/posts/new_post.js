@@ -57,12 +57,7 @@ export default function Home({ allPostsData }) {
                                 required
                             />
                             <br></br>
-                            <button
-                                type="submit"
-                                className={styles.btn}
-                            >
-                                Submit
-                            </button>
+                            <a href="/" className={styles.btn}>Submit</a>
                         </form>
                     </div>
                 </div>
