@@ -33,7 +33,7 @@ export default function UBC() {
 
         <div>
           <h1 className={styles.title}>University of British Columbia</h1>
-          <a href="new_post" className={styles.btn}>Ask a Question</a>
+          <a href="new_post" className={ubcStyles.btn}>Ask a Question</a>
 
         <div id = 'cock'>
           <h1>Posts</h1>
