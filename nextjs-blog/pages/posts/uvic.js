@@ -17,6 +17,21 @@ const submitQuestion = async (event) => {
   alert(`Is this your full name: ${result.question}`);
 };
 
+export async function getServerSideProps(context) {
+  const res = await fetch(`/questions.json`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
+
 export default function Home({ allPostsData }) {
   return (
     <div className="container">
