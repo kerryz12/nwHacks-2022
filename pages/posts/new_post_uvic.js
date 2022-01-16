@@ -1,8 +1,8 @@
+import Head from "next/head";
 import { useState } from "react";
 import textstyle from "/styles/new_post.module.css";
 import styles from "/styles/schools.module.css";
-import Head from 'next/head'
-import uvicStyles from '/styles/uvic.module.css'
+import uvicStyles from "/styles/uvic.module.css";
 
 export default function Home({ allPostsData }) {
   const [question, setQuestion] = useState("");
@@ -23,7 +23,7 @@ export default function Home({ allPostsData }) {
           author: author,
           content: content,
           comments: ["test comment 1", "test comment 2"],
-          school: "uvic"
+          school: "uvic",
         }),
       });
     } catch (err) {
@@ -35,7 +35,7 @@ export default function Home({ allPostsData }) {
   return (
     <div className="container">
       <Head>
-      <title>DB Forum | New Post</title>
+        <title>DB Forum | New Post</title>
       </Head>
       <div>
         <h1 className={styles.title}>Share your thoughts!</h1>
@@ -85,9 +85,7 @@ export default function Home({ allPostsData }) {
                 onChange={(e) => setContent(e.target.value)}
               />
               <br></br>
-              <a href="/" className={uvicStyles.btn}>
-              Submit
-              </a>
+              <button className={uvicStyles.btn}>Submit</button>
             </form>
           </div>
         </div>
