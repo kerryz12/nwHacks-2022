@@ -85,8 +85,8 @@ export default function Home({ allPostsData }) {
                 onChange={(e) => setContent(e.target.value)}
               />
               <br></br>
+              <button className={kpuStyles.btn}>Submit</button>
             </form>
-            <button className={kpuStyles.btn}>Submit</button>
           </div>
         </div>
       </div>
