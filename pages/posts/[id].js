@@ -1,7 +1,5 @@
-import Layout from '../../components/layout'
+
 import { getAllPostIds, getSortedPostsData } from '../../lib/posts'
-import utilStyles from '../../styles/utils.module.css'
-import Head from 'next/head'
 import matter from 'gray-matter'
 import React, { useState, useEffect } from 'react';
 
@@ -41,15 +39,13 @@ export default function Post({ postData }) {
   }
   console.log(postData[0])
   return (
-    <Layout>
-      {postData[0].title}
-      <br />
-      {postData[0].id}
-      <br />
+    <>
+      <h1>{postData[0].title}</h1>
+      <h4>{postData[0].author}</h4>
       {postData[0].date}
       <br />
       {postData[0].content}
-    </Layout>
+    </>
   )
 }
 

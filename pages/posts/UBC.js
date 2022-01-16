@@ -48,34 +48,6 @@ export default function UBC({ allPostsData }) {
                 </a>
               </Link>
             ))}
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
-            <a className={ubcStyles.single}>
-              <h3>Example Post</h3>
-            </a>
-            <br></br>
           </div>
         </div>
       </div>
