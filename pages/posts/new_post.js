@@ -29,8 +29,26 @@ export default function Home({ allPostsData }) {
                 <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
                     <div className="px-100 py-60">
                         <form className="flex flex-col" onSubmit={submitQuestion}>
-                            <label htmlFor="question" className={textstyle.textarea}></label>
-                            <textarea rows="25" cols="100"
+                            <label htmlFor="question" className={textstyle.textarea}>Your Question</label>
+                            <textarea rows="5" cols="200"
+                                className="mb-4 border-b-2"
+                                id="question"
+                                name="question"
+                                type="text"
+                                autocomplete="question"
+                                required
+                            />
+                            <label htmlFor="question" className={textstyle.textarea}>Your Name</label>
+                            <textarea rows="5" cols="200"
+                                className="mb-4 border-b-2"
+                                id="question"
+                                name="question"
+                                type="text"
+                                autocomplete="question"
+                                required
+                            />
+                            <label htmlFor="question" className={textstyle.textarea}>Description (Optional)</label>
+                            <textarea rows="5" cols="200"
                                 className="mb-4 border-b-2"
                                 id="question"
                                 name="question"
@@ -41,7 +59,7 @@ export default function Home({ allPostsData }) {
                             <br></br>
                             <button
                                 type="submit"
-                                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+                                className={styles.btn}
                             >
                                 Submit
                             </button>
