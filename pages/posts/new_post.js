@@ -1,6 +1,7 @@
 import { useState } from "react";
 import textstyle from "/styles/new_post.module.css";
 import styles from "/styles/schools.module.css";
+import Head from 'next/head'
 
 export default function Home({ allPostsData }) {
   const [question, setQuestion] = useState("");
@@ -31,6 +32,9 @@ export default function Home({ allPostsData }) {
 
   return (
     <div className="container">
+      <Head>
+      <title>DB Forum | New Post</title>
+      </Head>
       <div>
         <h1 className={styles.title}>Ask a question!</h1>
 
