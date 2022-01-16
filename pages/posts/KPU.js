@@ -36,7 +36,7 @@ export default function KPU({ allPostsData }) {
           <div>
             <h1>Posts</h1>
             {allPostsData.map(({ id, title, author, content }) => (
-              <Link href={`/posts/${id}`}>
+              <Link href={`/posts/kpuid/${id}`}>
                 <a className={kpuStyles.single}>
                   <h3>{title}</h3>
                   <h4>{author}</h4>
