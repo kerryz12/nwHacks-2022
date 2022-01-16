@@ -9,7 +9,7 @@ const Schools = () => {
             <div>
                 <h1>Schools</h1>
 
-                <h2>University of British Columbia</h2>
+                <a href="/posts/UBC"><h2>University of British Columbia</h2> </a>
                 <p>The University of British Columbia (UBC) is a public research university with campuses near
                      Vancouver and in Kelowna, British Columbia. Established in 1908, UBC is British Columbia's
                       oldest university. The university ranks among the top three universities in Canada.
@@ -25,7 +25,7 @@ const Schools = () => {
                              Canada, the UBC Library system has over 9.9 million volumes among its 21 branches.
                               The Okanagan campus, acquired in 2005, is located in Kelowna, British Columbia.</p>
                 
-                <h2>Kwantlen Polytechnic University</h2>
+                <a href="/posts/KPU"><h2>Kwantlen Polytechnic University</h2></a>
                 <p>Kwantlen Polytechnic University (commonly abbreviated to KPU) is a public degree-granting
                      undergraduate polytechnic university in British Columbia, Canada, with campuses in Surrey,
                       Richmond, Cloverdale, Whalley, and Langley. KPU is one of the largest institutions by enrolment
@@ -40,7 +40,7 @@ const Schools = () => {
                             vocational education for skilled technicians and workers in support roles in professions
                              such as engineering, accountancy, business administration, nursing, medicine, architecture,
                               and criminology.</p>
-                <h2>Simon Fraser University</h2>
+                <a href="/posts/SFU"><h2>Simon Fraser University</h2></a>
                 <p>Simon Fraser University (SFU) is a public research university in British Columbia, Canada, with three
                      campuses: Burnaby (main campus), Surrey, and Vancouver. The 170-hectare (420-acre) main Burnaby
                       campus on Burnaby Mountain, located 20 kilometres (12 mi) from downtown Vancouver, was established
@@ -54,7 +54,7 @@ const Schools = () => {
                            and agencies to operate joint research facilities such as the TRIUMF, Canada's national
                             laboratory for particle and nuclear physics, which houses the world's largest cyclotron,
                              and Bamfield Marine Station, a major centre for teaching and research in marine biology.</p>
-                <h2>University of Victoria</h2>
+                <a href="/posts/uvic"><h2>University of Victoria</h2></a>
                 <p>The University of Victoria (UVic or Victoria) is a public research university located in the 
                     municipalities of Oak Bay and Saanich, British Columbia, Canada. The university traces its
                      roots to Victoria College, the first post-secondary institution established in the province
