@@ -86,8 +86,8 @@ export default function Home({ allPostsData }) {
               />
               <br></br>
             </form>
+            <button className={kpuStyles.btn}>Submit</button>
           </div>
-          <button className={kpuStyles.btn}>Submit</button>
         </div>
       </div>
 
