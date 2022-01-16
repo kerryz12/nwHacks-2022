@@ -21,7 +21,7 @@ export default function UBC() {
         layout="intrinsic"
         className="object-center object-cover pointer-events-none"
         src={bgi}
-        
+        width="1680px" height="1050px"
       />
       </div>
 
