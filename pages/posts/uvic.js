@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useState } from "react";
 import styles from '/styles/schools.module.css'
 
 const submitQuestion = async (event) => {
@@ -19,6 +20,29 @@ const submitQuestion = async (event) => {
 };
 
 export default function Home({ allPostsData }) {
+  const [question, setQuestion] = useState("");
+
+  const submitQuestion = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8081/dbforum/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: question,
+          author: "eric liu",
+          content: "this is a post to test the api",
+          comments: ["test comment 1", "test comment 2"],
+        }),
+      });
+    } catch (err) {
+      console.log("bruh");
+    }
+  };
+
   return (
     <div className="container">
       <Head>
@@ -27,20 +51,19 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <main>
-        <h1 className="title">
-          University of Victoria
-        </h1>
+        <h1 className="title">University of Victoria</h1>
 
         <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
           <div className="px-6 py-4">
             <form className="flex flex-col" onSubmit={submitQuestion}>
-              <label htmlFor="question" className="mb-2 italic">Question: </label>
+              <label htmlFor="question" className="mb-2 italic">
+                Question:{" "}
+              </label>
               <input
                 className="mb-4 border-b-2"
-                id="question"
-                name="question"
                 type="text"
-                autocomplete="question"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
                 required
               />
               <button
@@ -60,8 +83,13 @@ export default function Home({ allPostsData }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Created by{' '}
-          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px" }} />
+          Created by{" "}
+          <img
+            src="/drift_bapo.png"
+            alt="Drift Bapo"
+            className="logo"
+            style={{ width: "200px", height: "200px" }}
+          />
         </a>
       </footer>
 
@@ -211,6 +239,5 @@ export default function Home({ allPostsData }) {
         }
       `}</style>
     </div>
-  )
+  );
 }
-
