@@ -1,7 +1,19 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import utilStyles from '../styles/utils.module.css'
+import { getSortedPostsData } from '../lib/posts'
+import Date from '../components/date'
 
-export default function Home() {
+export async function getServerSideProps(context) {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
+
+export default function Home({ allPostsData }) {
   return (
     <div className="container">
       <Head>
@@ -11,79 +23,57 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to DB Forum
+          Welcome to DB Forum!
         </h1>
 
-        <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">Ask a question!</div>
-            <form className="flex flex-col">
-              <input
-                className="mb-4 border-b-2"
-                id="name"
-                name="name"
-                type="text"
-                autocomplete="name"
-                required
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-
         <p className="description">
-          There is an imposter among us, please choose your crew
+          Need an answer? Ask! {"\n"}
+          Click on your school to continue.
         </p>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
+          <a href="/posts/UBC" className="card">
             <h3>UBC &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <div className="ubc">
+              <img src="ubc.png" style={{ width: "300px", height: "300px" }} />
+            </div>
           </a>
 
           <a href="https://nextjs.org/docs" className="card">
             <h3>KPU &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <div className="kpu">
+              <img src="kpu.png" style={{ width: "300px", height: "300px" }} />
+            </div>
           </a>
 
-          <a href="/posts/testpost" className="card">
+          <a href="/posts/SFU" className="card">
             <h3>SFU &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <div className="sfu">
+              <img src="sfu.png" style={{ width: "300px", height: "300px" }} />
+            </div>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="/posts/uvic"
             className="card"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <h3>UVic &rarr;</h3>
+            <div className="uvic">
+              <img src="uvic.png" style={{ width: "300px", height: "300px" }} />
+            </div>
           </a>
         </div>
       </main>
 
+      
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/ker1200/nwHacks-2022"
           target="_blank"
           rel="noopener noreferrer"
         >
           Created by{' '}
-          <img src="/vercel.svg" alt="Drift Bapo" className="logo" />
+          <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px" }} />
         </a>
       </footer>
 

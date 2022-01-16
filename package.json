@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+<<<<<<< HEAD
+    "date-fns": "^2.28.0"
+=======
+    "gray-matter": "^4.0.3"
+>>>>>>> a68656fd5e574c2a7ed3655c7ce9d167f8ded6b2
+  }
+}
