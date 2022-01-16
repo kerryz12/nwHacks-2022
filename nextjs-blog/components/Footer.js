@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div>
+        <footer>
         <a
           href="https://github.com/ker1200/nwHacks-2022"
           target="_blank"
@@ -9,8 +9,7 @@ const Footer = () => {
           Created by{' '}
           <img src="/drift_bapo.png" alt="Drift Bapo" className="logo" style={{ width: "200px", height: "200px"}} />
         </a>
-        </div> 
-
+        </footer>
      );
 }
  

@@ -34,14 +34,16 @@ export default function Header() {
             </form>
           </div>
         </div>
+       
         </Layout>
-        <h2>
+        {/* <h2>
           <Link href="/">
             <a>Back to home</a>
           </Link>
-        </h2>
-        <Footer />
+        </h2> */}
+
       </div>
+      
       
     )
   }
