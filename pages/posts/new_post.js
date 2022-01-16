@@ -26,6 +26,7 @@ export default function Home({ allPostsData }) {
     } catch (err) {
       console.log("bruh");
     }
+    window.location.href = "/";
   };
 
   return (
@@ -79,9 +80,9 @@ export default function Home({ allPostsData }) {
                 required
               />
               <br></br>
-              <a type="submit" href="/" className={styles.btn}>
+              <button type="submit" className={styles.btn}>
                 Submit
-              </a>
+              </button>
             </form>
           </div>
         </div>
