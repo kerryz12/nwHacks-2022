@@ -39,7 +39,7 @@ export default function Home({ allPostsData }) {
           <div className="px-100 py-60">
             <form className="flex flex-col" onSubmit={submitQuestion}>
               <label htmlFor="question" className={textstyle.textarea}>
-                Your Question
+                Title
               </label>
               <textarea
                 rows="5"
